@@ -1,0 +1,33 @@
+# =====================
+# LaTeX
+# =====================
+*.aux
+*.log
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+*.pdf
+*.xdv
+*.run.xml
+
+# =====================
+# Shell scripts
+# =====================
+*.sh
+
+# =====================
+# Misc
+# =====================
+*~
+*.bak
+*.swp
+.DS_Store
