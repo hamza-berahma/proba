@@ -1,0 +1,5 @@
+fatal: detected dubious ownership in repository at '/home/hamza'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/hamza
+2025-10-23 18:00:02 - Changes committed and pushed.

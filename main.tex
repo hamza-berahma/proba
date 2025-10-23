@@ -1,0 +1,66 @@
+\documentclass[12pt,a4paper]{book}
+
+\input{preamble}
+\setlength{\headheight}{15pt} % enough for fancyhdr headers
+\addtolength{\topmargin}{-2pt} % optional, keeps text centered
+
+
+% --- Title & Author ---
+\title{\textbf{Probability and Statistics}}
+\author{H.B}
+\date{\today}
+
+% --- Document ---
+\begin{document}
+
+% --- Title Page ---
+\begin{titlepage}
+    \centering
+    \vspace*{2.5cm}
+
+    {\Huge\bfseries Probability and Statistics\par}
+    \vspace{1cm}
+    \hrule
+    \vspace{0.5cm}
+    {\LARGE \textit{Lecture Notes}\par}
+    \vspace{0.5cm}
+    \hrule
+    \vspace{2cm}
+
+    {\Large \textsc{Hamza Berahma}\par}
+    \vspace{0.5cm}
+    {\large Student\par}
+
+    \vfill
+    {\large \today\par}
+    \vspace{1cm}
+\end{titlepage}
+
+% --- Dedication Page ---
+\cleardoublepage
+\thispagestyle{empty}
+\vspace*{6cm}
+\begin{center}
+    \emph{For} \\[0.5cm]
+    \rule{1.5cm}{0.4pt}\\[0.5cm] % thin black line
+    \emph{my idea of beautiful}
+\end{center}
+\vfill
+
+% --- Front Matter ---
+\frontmatter
+\tableofcontents
+
+
+% --- Main Matter ---
+\mainmatter
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+
+% --- Back Matter (optional) ---
+\backmatter
+% \include{appendixA}
+% \include{bibliography}
+
+\end{document}

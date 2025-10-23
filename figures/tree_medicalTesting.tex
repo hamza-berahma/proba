@@ -1,0 +1,34 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    level distance=26mm,
+    sibling distance=42mm,
+    every node/.style={font=\small},
+    edge from parent/.style={draw, -latex},
+    level 1/.style={sibling distance=68mm},
+    level 2/.style={sibling distance=34mm}
+]
+
+\node {Population}
+    child { node {$S$}
+        child { node {pos}
+            edge from parent node[left, xshift=-2pt]{0.97} }
+        child { node {neg}
+            edge from parent node[right, xshift=2pt]{0.03} }
+        edge from parent node[left]{0.20}
+    }
+    child { node {$\bar{S}$}
+        child { node {pos}
+            edge from parent node[left, xshift=-2pt]{0.10} }
+        child { node {neg}
+            edge from parent node[right, xshift=2pt]{0.90} }
+        edge from parent node[right]{0.80}
+    };
+
+\end{tikzpicture}
+
+\end{document}

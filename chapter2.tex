@@ -1,0 +1,316 @@
+\chapter{Counting}
+
+\section{Combinatorics}
+
+Probability problems often reduce to counting problems. By systematically enumerating outcomes, we can compute probabilities rigorously.
+
+\subsection{Counting Principles}
+
+\subsubsection{Multiplication Principle} 
+
+\begin{explanation}
+If a process consists of successive tasks, each of which can be performed in multiple ways, the total number of possible outcomes is the product of the number of ways to perform each task. This is sometimes called the \emph{Fundamental Counting Principle}.
+\\
+If task 1 can be done in $m_1$ ways, task 2 in $m_2$ ways, and task 3 in $m_3$ ways, then the total number of ways is $m_1 \cdot m_2 \cdot m_3$.
+\end{explanation}
+
+
+\begin{eg}[Dice Example]
+Throw a four-sided die, then a six-sided die. Total outcomes:
+\[
+4 \times 6 = 24
+\]
+
+\begin{explanation}
+We first choose the outcome of the first die (4 possibilities), then the second die (6 possibilities). Each choice of the first die can be paired with any of the second die outcomes, giving $4 \cdot 6 = 24$ total possibilities.
+\end{explanation}
+\end{eg}
+
+\subsubsection{Addition Principle} 
+\begin{explanation}
+If a task can be completed by choosing one option from disjoint sets, the total number of ways is the sum of the number of ways in each set. This is essentially a "choose one among mutually exclusive options" principle.
+\end{explanation}
+
+\[
+\text{If sets have } m_1, m_2, m_3 \text{ choices: } m_1 + m_2 + m_3
+\]
+
+\begin{eg}[Course Selection]
+A student can choose a language course from either set A (3 courses) or set B (2 courses). Total choices:
+\[
+3 + 2 = 5
+\]
+\end{eg}
+
+\subsubsection{Generalized Addition Principle (Inclusion–Exclusion)} 
+\begin{explanation}
+When sets are not disjoint, the \emph{Inclusion–Exclusion Principle} ensures we do not double-count overlapping elements.
+\end{explanation}
+
+\[
+|A \cup B| = |A| + |B| - |A \cap B|
+\]
+
+\[
+|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
+\]
+
+\begin{proof}[Proof for Two Sets]
+Each element in $A \cap B$ is counted twice when summing $|A| + |B|$. Subtracting $|A \cap B|$ corrects the overcount. This generalizes to three or more sets with alternating inclusion and exclusion.
+\end{proof}
+
+\begin{eg}[License Plates]
+License plates can have format \texttt{nnllll} or \texttt{nlllll}, where $n$ is a digit ($0$–$9$) and $l$ is a lowercase letter ($a$–$z$).
+
+\[
+\text{\texttt{nnllll}}: 10^2 \cdot 26^4, \quad 
+\text{\texttt{nlllll}}: 10 \cdot 26^5
+\]
+
+Total possibilities (disjoint formats):
+\[
+10^2 \cdot 26^4 + 10 \cdot 26^5
+\]
+\end{eg}
+
+\subsubsection{Subtraction Principle (Complement Principle)}
+\begin{explanation}
+Sometimes it's easier to count what does \emph{not} happen and subtract from the total. This is often called the \emph{complement principle}.
+\end{explanation}
+
+\[
+|S| = |U| - |\bar{S}|
+\]
+
+\begin{eg}[Strings Example]
+Random string of length 6 from $\{a,b,c,d,e,f,g\}$. Probability it contains at least one of $\{a,b,c\}$?
+
+\[
+|U| = 7^6
+\]
+
+\[
+|\bar{S}| = 4^6 \quad (\text{strings with no } a,b,c)
+\]
+
+\[
+|S| = |U| - |\bar{S}| = 7^6 - 4^6
+\]
+
+\[
+P(S) = \frac{|S|}{|U|} = \frac{7^6 - 4^6}{7^6}
+\]
+
+\begin{explanation}
+Instead of counting all strings that contain $a$, $b$, or $c$ (complicated), we count strings without $a,b,c$ (simpler) and subtract from total.
+\end{explanation}
+\end{eg}
+
+\subsubsection{Division Principle} 
+\begin{explanation}
+Used when objects are grouped into identical classes, or arrangements are indistinguishable in some way. If each object in $A$ corresponds to $k$ objects in $B$:
+
+\[
+|A| = \frac{|B|}{k}
+\]
+\end{explanation}
+
+\begin{eg}[Seating Around a Table]
+$5$ people around a circular table. Linear arrangements: $5! = 120$, but rotations are identical. Divide by $5$:
+\[
+\frac{5!}{5} = 24
+\]
+\end{eg}
+
+\subsection{Common Discrete Structures}
+
+\paragraph{1. Strings}  
+Sequence of symbols. Number of strings of length $l$ from an alphabet of size $m$:
+\[
+m^l
+\]
+
+\paragraph{2. Permutations}
+\begin{itemize}
+    \item \textbf{All $n$ objects:} 
+    \[
+    n! = n \cdot (n-1) \cdot \dots \cdot 1
+    \]
+
+    \item \textbf{$k$ objects out of $n$:} 
+    \[
+    P(n,k) = \frac{n!}{(n-k)!} = n \cdot (n-1) \cdot \dots \cdot (n-k+1)
+    \]
+
+    \item \textbf{Example:} Arrange 3 objects from $\{a,b,c,d,e\}$:
+
+    \[
+    5 \cdot 4 \cdot 3 = 60 \text{ sequences}
+    \]
+
+    \begin{explanation}
+    First pick the first object (5 options), then second (4 options), then third (3 options). Multiplication principle applies.
+    \end{explanation}
+\end{itemize}
+
+\paragraph{3. Combinations / Selections}  
+\begin{explanation}
+Number of ways to select $k$ elements from $n$ distinct objects where order does not matter:
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+\end{explanation}
+
+\begin{eg}[Selecting Students]
+Choose 3 from $\{a,b,c,d,e\}$:
+\[
+\binom{5}{3} = 10
+\]
+
+\begin{explanation}
+Order does not matter; $\{a,b,c\} = \{c,b,a\}$, so divide permutations $3!$ to remove overcounting.
+\end{explanation}
+\end{eg}
+
+\paragraph{4. Permutations with Repetition}  
+\begin{explanation}
+When objects repeat, divide by factorials of repeated counts to avoid counting indistinguishable arrangements multiple times.
+\end{explanation}
+
+\begin{eg}[Name \texttt{Hamza}]
+Letters: H,A,M,Z,A (two A's):
+\[
+\frac{5!}{2!} = 60
+\]
+\end{eg}
+\begin{explanation}[General Formula]
+$n$ objects with $n_1, n_2, \dots, n_k$ repetitions:
+\[
+\frac{n!}{n_1! \cdot n_2! \cdot \dots \cdot n_k!}
+\]
+\end{explanation}
+
+\paragraph{5. Combinations with Repetition}  
+\begin{explanation}
+Selecting $k$ elements from $n$ types, allowing repetition:
+\[
+\binom{n+k-1}{k} = \frac{(n+k-1)!}{k!(n-1)!}
+\]
+\end{explanation}
+
+\begin{eg}[Fruits Example]
+Buy 4 fruits from 3 types (apples, oranges, bananas):
+\[
+\binom{3+4-1}{4} = \binom{6}{4} = 15
+\]
+
+Some possibilities: \{4 apples, 0 oranges, 0 bananas\}, \{3 apples, 1 orange, 0 bananas\}, \{2 apples, 2 oranges, 0 bananas\}, etc.
+\end{eg}
+
+\begin{proof}[Recursive Proof Using the "Stars and Bars" Idea]
+Let $C(n,k)$ denote the number of ways to select $k$ elements from $n$ types with repetition.  
+
+\textbf{Recursive idea:} Consider the first type of element (say apples). We can choose $0, 1, 2, \dots, k$ of them.  
+
+- If we choose $i$ of the first type, we have $k-i$ elements left to choose from the remaining $n-1$ types.  
+- By recursion, the number of ways for this case is $C(n-1, k-i)$.  
+
+Hence, the recursion is:
+\[
+C(n,k) = \sum_{i=0}^{k} C(n-1, k-i)
+\]
+
+\textbf{Base cases:}  
+\[
+C(1,k) = 1 \quad \text{(all elements must be the only type)}, \qquad C(n,0) = 1 \quad \text{(choose nothing)}
+\]
+
+\textbf{Closed form via induction:} Assume the formula holds for $n-1$ types. Then:
+
+\[
+C(n,k) = \sum_{i=0}^{k} \binom{(n-1)+(k-i)-1}{k-i} = \sum_{i=0}^{k} \binom{n+k-i-3}{k-i}
+\]
+
+Using the standard identity
+\[
+\sum_{i=0}^{k} \binom{m+i}{i} = \binom{m+k+1}{k},
+\]
+
+we get
+\[
+C(n,k) = \binom{n+k-1}{k}.
+\]
+
+\end{proof}
+\begin{remark}
+Intuitively, each selection of $k$ items from $n$ types can be represented as $k$ stars and $n-1$ bars separating the types. Counting sequences of $k$ stars and $n-1$ bars gives exactly $\binom{n+k-1}{k}$.
+\end{remark}
+
+\begin{remark}[Counting Matrix for Sampling]
+Here is a compact overview of the four classic counting cases in combinatorics:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3} % increase row height
+\setlength{\tabcolsep}{12pt} % increase column spacing
+\begin{tabular}{lcc}
+\toprule
+ & \textbf{Without Repetition} & \textbf{With Repetition} \\
+\midrule
+\textbf{Ordered} & $P(n, r) = \dfrac{n!}{(n-r)!}$ & $n^r$ \\
+\textbf{Unordered} & $\binom{n}{r} = \dfrac{n!}{r!(n-r)!}$ & $\binom{n+r-1}{r}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{remark}
+
+\begin{exercise}[Permutation Probability]
+    For a random permutation of $\{1,2,3,4,5\}$, what is the probability that the first two digits sum to 5?
+
+    The starting pairs summing to 5 are $(1,4), (4,1), (2,3),$ and $(3,2)$. There are 4 such pairs. The remaining 3 digits can be arranged in $3!$ ways.
+    $$ P(\text{sum is 5}) = \frac{4 \times 3!}{5!} = \frac{24}{120} = \frac{1}{5} $$
+\end{exercise}
+
+\begin{exercise}[Committee Selection]
+    A committee of 6 is chosen from 20 Moroccan and 10 foreign professors. Find the probability of selecting: a) exactly 2 foreign professors, and b) at least 2 foreign professors.
+
+    a) For exactly 2 foreign (and 4 Moroccan) professors:
+    $$ P(\text{exactly 2 foreign}) = \frac{\binom{10}{2}\binom{20}{4}}{\binom{30}{6}} \approx 0.3672 $$
+    b) For at least 2 foreign professors, we use the complement rule:
+    $$ P(\ge 2) = 1 - P(0 \text{ or } 1 \text{ foreign}) = 1 - \frac{\binom{10}{0}\binom{20}{6} + \binom{10}{1}\binom{20}{5}}{\binom{30}{6}} \approx 0.6736 $$
+\end{exercise}
+
+\begin{exercise}[Weighted String Probability]
+    A 4-digit string is made from $\{1,2,3\}$. The probability of a string $x$ is proportional to its first digit $x_1$. Find the probability that the string is: a) all the same digit, and b) a palindrome.
+
+    The probability of any string $x$ is $P(x) = x_1/162$.
+    
+    a) All digits are the same ('1111', '2222', '3333'):
+    $$ P(\text{all same}) = \frac{1}{162} + \frac{2}{162} + \frac{3}{162} = \frac{6}{162} = \frac{1}{27} $$
+    b) The string is a palindrome (form $x_1x_2x_2x_1$):
+    $$ P(\text{palindrome}) = \frac{3 \times 1 + 3 \times 2 + 3 \times 3}{162} = \frac{3(1+2+3)}{162} = \frac{18}{162} = \frac{1}{9} $$
+\end{exercise}
+
+\begin{exercise}
+    Consider picking a permutation of 12233 with equal likelihood
+    \[
+    P(\text{perm has 2 symbols adding up to 4})
+    \]
+\end{exercise}
+
+\begin{exercise}
+    Consider all solutions to 
+    \[
+    x_1 + x_2 + x_3 + x_4 = 10
+    \]
+    Pick any one of them with equal likelihood
+    \begin{enumerate}
+        \item $P(\text{exactly 3 of the $x_i$'have the same value}) = $
+        \item $P(\text{all 4 of them have the same value}) =$
+        \item $P(x_1 = 3) = $
+    \end{enumerate}
+\end{exercise}
+
+
+

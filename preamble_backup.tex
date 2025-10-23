@@ -1,0 +1,265 @@
+% ========================================
+% PREAMBLE for Probability and Statistics
+% ========================================
+
+% --- Basics ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{emptypage}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage[usenames,dvipsnames]{xcolor}
+\setlength{\headheight}{14.49998pt}
+
+% --- Math Packages ---
+\usepackage{amsfonts, mathtools, amsthm, amssymb} %% REMOVED: amsmath (loaded by mathtools)
+\usepackage{mathrsfs}
+\usepackage{cancel}
+\usepackage{bm}
+\usepackage[cal=boondoxo]{mathalfa}
+\usepackage{systeme}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+
+% --- Math Commands ---
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand{\samplespace}{\mathcal{S}}
+\DeclareMathOperator{\sgn}{sgn}
+%% REMOVED: Global redefinition of \lim to use \limits. This is poor practice as it disrupts inline text flow. Use \lim\limits or \displaystyle where needed.
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+\newcommand\contra{\scalebox{1.1}{$\lightning$}}
+
+% --- Correction Commands ---
+\definecolor{correct}{HTML}{009900}
+\newcommand\correct[2]{\ensuremath{\:}{\color{red}{#1}}\ensuremath{\to }{\color{correct}{#2}}\ensuremath{\:}}
+\newcommand\green[1]{{\color{correct}{#1}}}
+
+% --- Utilities ---
+\usepackage{xifthen} %% MOVED: xifthen here to ensure it's loaded before being used.
+\newcommand\hr{\noindent\rule[0.5ex]{\linewidth}{0.5pt}}
+\newcommand\hide[1]{}
+\newcommand\mat[1]{\mathbf{#1}}
+
+% --- SI Units ---
+\usepackage{siunitx}
+\sisetup{locale = FR}
+
+% --- TikZ ---
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{intersections, angles, quotes, calc, positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes,positioning,trees,calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+\tikzset{
+    force/.style={thick, {Circle[length=2pt]}-Stealth, shorten <=-1pt} %% FIXED: 'stealth' should be 'Stealth' (case-sensitive)
+}
+
+% --- Page Layout ---
+\usepackage[
+    top=3cm,
+    bottom=3cm,
+    inner=3cm,
+    outer=2.5cm
+]{geometry}
+\setlength{\headheight}{13.6pt} %% MOVED: Set headheight after loading geometry and fancyhdr for proper calculation.
+
+% --- Theorem Environments ---
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+    }
+]{thmgreenbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+    }
+]{thmbluebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue
+    }
+]{thmblueline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+    }
+]{thmredbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!1,
+    },
+    qed=\qedsymbol
+]{thmproofbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
+    },
+]{thmexplanationbox}
+
+
+% --- Solution Environment ---
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+    bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!1,
+    },
+    qed=\qedsymbol
+]{thmsolutionbox}
+
+\declaretheorem[style=thmsolutionbox, name=Solution]{solution}
+
+
+\declaretheorem[style=thmgreenbox, name=Definition]{definition}
+\declaretheorem[style=thmbluebox, numbered=no, name=Example]{eg}
+\declaretheorem[style=thmredbox, name=Proposition]{prop}
+\declaretheorem[style=thmredbox, name=Theorem]{theorem}
+\declaretheorem[style=thmredbox, name=Lemma]{lemma}
+\declaretheorem[style=thmredbox, numbered=no, name=Corollary]{corollary}
+
+%% ADDED: New 'exercise' environment using the 'thmbluebox' style. It will be numbered automatically.
+\declaretheorem[style=thmbluebox, name=Exercise]{exercise}
+
+\declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+
+\declaretheorem[style=thmexplanationbox, name=Proof]{tmpexplanation}
+\newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
+
+\declaretheorem[style=thmblueline, numbered=no, name=Remark]{remark}
+\declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
+
+\newtheorem*{notation}{Notation}
+\newtheorem*{previouslyseen}{As previously seen}
+\newtheorem*{problem}{Problem}
+\newtheorem*{observe}{Observe}
+\newtheorem*{property}{Property}
+\newtheorem*{intuition}{Intuition}
+
+
+% --- Lecture & Exercise Commands ---
+\makeatletter
+%% REMOVED: Old \exercise and \subexercise commands are now replaced by the 'exercise' environment below.
+%% The new environment provides consistent styling and automatic numbering.
+
+%% ADDED: A custom list for sub-exercises (parts a, b, c, ...). Use it inside the new 'exercise' environment.
+\newlist{subtasks}{enumerate}{1}
+\setlist[subtasks,1]{label=\alph*)}
+
+\def\@lesson{}%
+\newcommand{\lesson}[3]{
+    \ifthenelse{\isempty{#3}}{%
+        \def\@lesson{Lecture #1}%
+    }{%
+        \def\@lesson{Lecture #1: #3}%
+    }%
+    \subsection*{\@lesson}
+    \marginpar{\small\textsf{\mbox{#2}}}
+}
+\makeatother
+
+
+% --- Headers and Footers ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} %% Clears existing header/footer settings
+\fancyhead[RO,LE]{\@lesson}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[C]{\leftmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+% --- Notes ---
+\usepackage{todonotes}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+\newenvironment{verbetering}{\begin{tcolorbox}[
+    arc=0mm,
+    colback=white,
+    colframe=green!60!black,
+    title=Remark,
+    fonttitle=\sffamily,
+    breakable
+]}{\end{tcolorbox}}
+
+\newenvironment{noot}[1]{\begin{tcolorbox}[
+    arc=0mm,
+    colback=white,
+    colframe=white!60!black,
+    title=#1,
+    fonttitle=\sffamily,
+    breakable
+]}{\end{tcolorbox}}
+
+
+
+% --- Figure Support ---
+\usepackage{import}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
+
+% --- Hyperlinks ---
+%% MOVED: hyperref is best loaded late in the preamble.
+%% REMOVED: url package (functionality is included in hyperref).
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0}
+}
