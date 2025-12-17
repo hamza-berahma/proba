@@ -1,33 +1,39 @@
-# =====================
-# LaTeX
-# =====================
+# LaTeX build artifacts
 *.aux
 *.log
-*.toc
 *.out
-*.lof
-*.lot
-*.fls
+*.toc
+*.dvi
 *.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
 *.synctex.gz
 *.bbl
 *.blg
 *.nav
 *.snm
 *.vrb
-*.pdf
-*.xdv
+*.bcf
 *.run.xml
 
-# =====================
-# Shell scripts
-# =====================
-*.sh
+# PDFs (uncomment if you don't want to track PDFs)
+# *.pdf
 
-# =====================
-# Misc
-# =====================
-*~
-*.bak
+# Editor files
 *.swp
+*.swo
+*~
 .DS_Store
+.vscode/
+.idea/
+
+# Backup files
+*_backup.tex
+*_backup.*
+*.bak
+
+# Auto-commit scripts (local automation)
+auto_commit.sh
+auto_commit.log

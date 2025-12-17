@@ -1,7 +1,6 @@
 \chapter{Foundations of Probability}
 \label{ch:foundations}
 
-% --- Section: Intuition ---
 \section{Probability and Intuition}
 
 Sometimes our intuition misleads us. To be more accurate, we need to recognize that intuition can be wrong for mainly two reasons:
@@ -53,7 +52,6 @@ Consider the following statements. Decide whether they are true or false, and ex
 Always clarify definitions and assumptions in probability problems. \\
 Words like "random" or "average" can be misleading if interpreted naively.
 \end{remark}
-% --- Section: Experiments and Sample Spaces ---
 \section{Random Experiments and Sample Spaces}
 
 To formalize probability, we begin with a few core definitions.
@@ -108,7 +106,6 @@ Here are several random experiments and their corresponding sample spaces:
     $S_7 = \{1, 2, 3, \dots \}$
 \end{description}
 \end{eg}
-% --- Section: Probability Measures ---
 \section{Probability Measures}
 
 A probability measure (or probability distribution) is a function that assigns a likelihood to each event.
@@ -134,7 +131,6 @@ that maps events in the sample space $S$ to a real number between 0 and 1. It mu
 \begin{remark}
 Intuitively, a probability measure quantifies how likely an event is to occur. The axioms ensure probabilities are consistent: they cannot be negative, the total probability is 1, and disjoint events’ probabilities add up.
 \end{remark}
-% --- Section: Computing Probabilities ---
 \section{Computing Probabilities}
 
 Let's apply the concepts of probability measures to compute probabilities in various scenarios.
@@ -209,7 +205,6 @@ P(E) = \frac{1+1+1+2+2+3}{60} = \frac{10}{60} = \frac{1}{6}.
 \begin{remark}
 Weighted probabilities allow modeling biased or non-uniform scenarios. Always normalize probabilities to ensure the total sum equals 1.
 \end{remark}
-% --- Section: Conditional Probability ---
 \section{Conditional Probability}
 
 Conditional probability measures the likelihood of an event occurring given that another event has already occurred. It is a fundamental concept that allows us to update our beliefs in light of new evidence.
@@ -309,7 +304,6 @@ P((A \cup B) \mid Q) = \frac{P(A \cap Q) + P(B \cap Q)}{P(Q)}
 \begin{remark}
 Conditional probability allows reasoning about events under additional information. Tree diagrams and tables are effective tools for visualizing and computing these probabilities.
 \end{remark}
-% --- Section: Independence of Events ---
 \section{Independence of Events}
 
 \subsection{Joint Probability}
